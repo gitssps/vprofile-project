@@ -1,7 +1,7 @@
 version: '3'
 services:
   vprodb:
-    image: vprofile/vprofiledb:V1
+    image: kubessp1/vprofiledb:v1
     ports:
       - "3306:3306"
     volumes:
@@ -23,16 +23,17 @@ services:
       - RABBITMQ_DEFAULT_PASS=guest
 
   vproapp:
-    image: vprofile/vprofileapp:V1
+    image: kubessp1/vprofileapp:v1
     ports:
       - "8080:8080"
-    volumes: 
+    volumes:
       - vproappdata:/usr/local/tomcat/webapps
 
   vproweb:
-    image: vprofile/vprofileweb:V1
+    image: kubessp1/vprofileweb:v1
     ports:
       - "80:80"
 volumes:
   vprodbdata: {}
   vproappdata: {}
+  ~
